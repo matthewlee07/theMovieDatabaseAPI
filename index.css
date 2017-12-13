@@ -1,0 +1,64 @@
+*{
+    text-align: center;
+    background-color: #eeeeee;
+}
+
+.result_page{
+    margin-top: 25px;
+}
+
+.TMDb_SVG{
+    width: 100px;
+    height: 100px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 500px;
+}
+
+ul{
+    padding:0;
+}
+
+li{
+    margin-bottom: 50px;
+    display: inline-block;
+}
+
+button{
+    background-color: rgb(1,210,119);
+    color: #eeeeee;
+    padding: 4px 8px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+button:disabled{
+    background-color: rgb(102, 211, 162);
+    cursor: not-allowed;
+}
+.round {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+.page_count{
+    padding:10px;
+}
+
+footer{
+    padding-top: 25px;
+    text-align: center;
+}
+
+.about_app{
+    text-align: center;
+    padding: 0 15%;
+}
+
+.hidden{
+    display: none;
+}
+

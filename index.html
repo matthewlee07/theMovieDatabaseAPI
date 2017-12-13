@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- correct way to import normalize? remove node modules/package-lock.json?-->
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Find Your Film</title>
+</head>
+
+<body>
+    <a name="top"></a>
+    <main>
+        <section>
+            <h1>Find Your Film</h1>
+            <form action="#" class="js-search-form">
+                <label for="query"></label>
+                <input type="text" class="js-query" placeholder="ie. Brave">
+                <button type="submit" id="search_button" disabled>Search</button>
+            </form>
+            <h2 id="feedback"></h2>
+        </section>
+
+        <section class="js-movie-result-page result_page hidden">
+            <button class="page_count previous_page round">&#8249;</button>
+            <span class="page_count page_counter"></span>
+            <button class="page_count next_page round">&#8250;</button>
+            <ul class="js-movie-result-list"></ul>
+            <a href="#top">
+                <button class="page_count previous_page round">&#8249;</button>
+            </a>
+            <span class="page_count page_counter"></span>
+            <a href="#top">
+                <button class="page_count next_page round">&#8250;</button>
+            </a>
+        </section>
+
+        <footer>
+            <a href="https://www.themoviedb.org/about" target="_blank">
+                <img class="js-TMDb_SVG TMDb_SVG" src="https://www.themoviedb.org/assets/static_cache/281f6d241d2971b514806517d5b9dd84/images/v4/logos/powered-by-square-green.svg"
+                    alt="TMDb_SVG" />
+            </a>
+            <p class="about_app">
+                Find Your Film searches through movie titles using The Movie Database API.</p>
+        </footer>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
