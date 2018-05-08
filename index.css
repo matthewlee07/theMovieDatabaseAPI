@@ -22,7 +22,7 @@ ul{
 }
 
 li{
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
     display: inline-block;
 }
 
@@ -38,6 +38,7 @@ button:disabled{
     background-color: rgb(102, 211, 162);
     cursor: not-allowed;
 }
+
 .round {
     border-radius: 50%;
     height: 50px;
@@ -62,3 +63,36 @@ footer{
     display: none;
 }
 
+a{
+    text-decoration: none;
+}
+
+.overlay{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.3);
+    z-index:2;
+    display:none;
+}
+
+.movie_details{
+    display: none;
+    padding:5% 25%;
+}
+
+.card_hover {
+    width: 80%;
+    background-color: #EEEEEE;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index:3;
+}
+
+.card_hover .movie_details{
+    display: block;
+}

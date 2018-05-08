@@ -27,13 +27,13 @@ $(document).ready(function () {
                 STORE.data = response;
                 callback();
                 $('.js-movie-result-page').removeClass('hidden');
-                message =`${response.total_results} results found for "${searchTerm}"`;
+                message = `${response.total_results} results found for "${searchTerm}"`;
             }
             displayFeedbackMessage(message);
         });
     }
 
-    function displayFeedbackMessage(message){
+    function displayFeedbackMessage(message) {
         $('#feedback').html(message)
     }
 
@@ -56,11 +56,9 @@ $(document).ready(function () {
         if (item.poster_path !== null) {
             return `
                 <li id=${item.id} class='search_result'>
-                    <p>
-                        <h3><strong>${item.title}</strong></h3><br/>
-                        <img class='js-movie-poster' src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt=${item.title}/>
-                    </p>
-                    <div class="movie_details" hidden>
+                    <h3><strong>${item.title}</strong></h3>
+                    <img class='js-movie-poster' src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt=${item.title}/>
+                    <div class="movie_details">
                         <p><strong>Average Rating</strong>: ${item.vote_average}</p>
                         <p><strong>Release Date</strong>: ${item.release_date}</p>
                         <p><strong>Overview:</strong> ${item.overview}</p>
@@ -73,7 +71,17 @@ $(document).ready(function () {
     // incomplete
     $(function displayMovieDetails() {
         $('.js-movie-result-page').on('click', '.js-movie-poster', event => {
-            console.log('movie poster clicked')
+            $(event.target).parent().addClass('card_hover');
+            $('.overlay').show();
+
+        })
+        $('.overlay').on('click', event => {
+            $('.card_hover').removeClass('card_hover');
+            $('.overlay').hide();
+        })
+        $('close').on('click', event => {
+            $('.card_hover').removeClass('card_hover');
+            $('.overlay').hide();
         })
     })
 
@@ -87,6 +95,8 @@ $(document).ready(function () {
         STORE.page = 1;
         getDataFromApi(query, displaySearchResult);
         $('.js-movie-result-page').removeAttr('hidden');
+        $('.previous_page').prop('disabled', true);
+        $('.next_page').prop('disabled', false);
     });
 
     $('.js-query').keyup(event => {
@@ -99,6 +109,13 @@ $(document).ready(function () {
         if (STORE.page > 1) {
             STORE.page--;
             getDataFromApi(STORE.searchTerm, displaySearchResult);
+            console.log(STORE.page);
+            if (STORE.page === 1) {
+                $('.previous_page').prop('disabled', true);
+            }
+            $('.next_page').prop('disabled', false);
+        } else {
+            $('.previous_page').prop('disabled', true);
         }
     })
 
@@ -106,8 +123,12 @@ $(document).ready(function () {
         if (STORE.page < STORE.data.total_pages) {
             STORE.page++;
             getDataFromApi(STORE.searchTerm, displaySearchResult);
+            if (STORE.page >= STORE.data.total_pages) {
+                $('.next_page').prop('disabled', true);
+            }
+            $('.previous_page').prop('disabled', false);
+        } else {
+            $('.next_page').prop('disabled', true);
         }
     })
 })
-
-// change remove/add class to prop
