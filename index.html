@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <!-- correct way to import normalize? remove node modules/package-lock.json?-->
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="index.css">
     <meta charset="UTF-8">
@@ -12,7 +11,6 @@
 </head>
 
 <body>
-    <a name="top"></a>
     <main>
         <section>
             <h1>Find Your Film</h1>
@@ -29,14 +27,10 @@
             <span class="page_count page_counter"></span>
             <button class="page_count next_page round">&#8250;</button>
             <ul class="js-movie-result-list"></ul>
-            <div class="overlay"></div>
-            <a href="#top">
-                <button class="page_count previous_page round">&#8249;</button>
-            </a>
+            <div class="js-overlay overlay"></div>
+            <button class="page_count previous_page round">&#8249;</button>
             <span class="page_count page_counter"></span>
-            <a href="#top">
-                <button class="page_count next_page round">&#8250;</button>
-            </a>
+            <button class="page_count next_page round">&#8250;</button>
         </section>
 
         <footer>

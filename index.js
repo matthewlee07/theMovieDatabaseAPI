@@ -43,7 +43,6 @@ $(document).ready(function () {
             return renderSearchResult(item);
         });
         $('.js-movie-result-list').html(results);
-        // incomplete validation
         if (STORE.data.total_pages > 1) {
             $('.page_count').removeClass('hidden');
             $('.page_counter').html(STORE.page);
@@ -57,7 +56,7 @@ $(document).ready(function () {
             return `
                 <li id=${item.id} class='search_result'>
                     <h3><strong>${item.title}</strong></h3>
-                    <img class='js-movie-poster' src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt=${item.title}/>
+                    <img class='js-movie-poster movie_poster' src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt=${item.title}/>
                     <div class="movie_details">
                         <p><strong>Average Rating</strong>: ${item.vote_average}</p>
                         <p><strong>Release Date</strong>: ${item.release_date}</p>
@@ -70,6 +69,7 @@ $(document).ready(function () {
 
     // incomplete
     $(function displayMovieDetails() {
+
         $('.js-movie-result-page').on('click', '.js-movie-poster', event => {
             $(event.target).parent().addClass('card_hover');
             $('.overlay').show();
@@ -87,7 +87,6 @@ $(document).ready(function () {
 
     $('.js-search-form').submit(event => {
         event.preventDefault();
-        // edge case input validation
         const queryTarget = $(event.currentTarget).find('.js-query');
         const query = queryTarget.val();
         STORE.searchTerm = query;
@@ -108,6 +107,7 @@ $(document).ready(function () {
     $('.previous_page').click(event => {
         if (STORE.page > 1) {
             STORE.page--;
+            window.scrollTo(0, 0);
             getDataFromApi(STORE.searchTerm, displaySearchResult);
             console.log(STORE.page);
             if (STORE.page === 1) {
@@ -120,8 +120,10 @@ $(document).ready(function () {
     })
 
     $('.next_page').click(event => {
+
         if (STORE.page < STORE.data.total_pages) {
             STORE.page++;
+            window.scrollTo(0, 0);
             getDataFromApi(STORE.searchTerm, displaySearchResult);
             if (STORE.page >= STORE.data.total_pages) {
                 $('.next_page').prop('disabled', true);
