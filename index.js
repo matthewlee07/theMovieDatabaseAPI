@@ -67,12 +67,12 @@ $(document).ready(function () {
         }
     }
 
-    // incomplete
-    $(function displayMovieDetails() {
 
+    $(function displayMovieDetails() {
         $('.js-movie-result-page').on('click', '.js-movie-poster', event => {
             $(event.target).parent().addClass('card_hover');
             $('.overlay').show();
+            window.scrollTo(0,0);
 
         })
         $('.overlay').on('click', event => {

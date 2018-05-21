@@ -1,6 +1,7 @@
 *{
     text-align: center;
     background-color: #eeeeee;
+    box-sizing: border-box;
 }
 
 .result_page{
@@ -68,20 +69,17 @@ a{
 }
 
 .overlay{
+    display:none;
     position: fixed;
+    z-index:20;
+    padding-top: 100px;
     top:0;
     left:0;
     width: 100vw;
     height:100vh;
-    z-index:20;
-    background-color:rgba(0,0,0,0.3);
-    display:none;
-    overflow: hidden;
-}
 
-.movie_details{
-    display: none;
-    padding:5% 25%;
+    background-color:black;
+    overflow: auto;
 }
 
 .card_hover {
@@ -95,13 +93,10 @@ a{
     z-index:30;
 }
 
-.card_hover .movie_details{
-    display: block;
-}
-
 .search_result{
     height: 550px;
-    overflow: hidden;
+    width: 300px;
+    margin:12px;
 }
 
 .movie_poster{
@@ -109,3 +104,15 @@ a{
     height: 100%;
     max-width: 300px;
 }
+
+.card_hover .movie_details{
+    display: block;
+}
+
+.movie_details{
+    display: none;
+    padding:5% 25%;
+}
+
+/* overlay is off center */
+/* need to increase width of movie details responively */
