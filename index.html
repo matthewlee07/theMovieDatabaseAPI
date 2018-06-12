@@ -4,6 +4,8 @@
 <head>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -13,24 +15,29 @@
 <body>
     <main>
         <section>
-            <h1>Find Your Film</h1>
+            <embed class="logo" src="images/Find_Your_Film2.svg">
+            <div>
+                <h2 id="current">Current Movies:</h2>
+
+            </div>
             <form action="#" class="js-search-form">
                 <label for="query"></label>
                 <input type="text" class="js-query" placeholder="ie. Brave">
                 <button type="submit" id="search_button" disabled>Search</button>
             </form>
+
             <h2 id="feedback"></h2>
         </section>
 
         <section class="js-movie-result-page result_page hidden">
-            <button class="page_count previous_page round">&#8249;</button>
+            <button class="page_count previous_page">Previous</button>
             <span class="page_count page_counter"></span>
-            <button class="page_count next_page round">&#8250;</button>
+            <button class="page_count next_page">Next</button>
             <ul class="js-movie-result-list"></ul>
             <div class="js-overlay overlay"></div>
-            <button class="page_count previous_page round">&#8249;</button>
+            <button class="page_count previous_page">Previous</button>
             <span class="page_count page_counter"></span>
-            <button class="page_count next_page round">&#8250;</button>
+            <button class="page_count next_page">Next</button>
         </section>
 
         <footer>

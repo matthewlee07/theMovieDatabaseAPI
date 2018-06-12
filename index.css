@@ -2,6 +2,23 @@
     text-align: center;
     background-color: #eeeeee;
     box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+.font{
+    font-family: 'Merriweather', serif;
+}
+
+.logo{
+    margin: 24px;
+    padding: 12px;
+    width: 50%;
+    height: 50%;
+}
+
+.current_movies{
+    border: 2px solid pink;
+    display: block
 }
 
 .result_page{
@@ -23,7 +40,6 @@ ul{
 }
 
 li{
-    /* margin-bottom: 50px; */
     display: inline-block;
 }
 
@@ -38,12 +54,6 @@ button{
 button:disabled{
     background-color: rgb(102, 211, 162);
     cursor: not-allowed;
-}
-
-.round {
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
 }
 
 .page_count{
@@ -72,11 +82,11 @@ a{
     display:none;
     position: fixed;
     z-index:20;
-    padding-top: 100px;
+    /* padding-top: 10px; */
     top:0;
     left:0;
-    width: 100vw;
-    height:100vh;
+    width: 100%;
+    height:100%;
 
     background-color:black;
     overflow: auto;
@@ -94,6 +104,7 @@ a{
 }
 
 .search_result{
+    border: 2px solid blue;
     height: 550px;
     width: 300px;
     margin:12px;
@@ -114,5 +125,6 @@ a{
     padding:5% 25%;
 }
 
-/* overlay is off center */
+/* disable scrolling on movie details */
 /* need to increase width of movie details responively */
+/* Prev/Next button same size */
