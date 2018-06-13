@@ -9,7 +9,15 @@ $(document).ready(function () {
     };
 
     const API_SEARCH_URL = 'https://api.themoviedb.org/3/search/movie';
-    const API_CURRENT_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc';
+    const API_POPULAR_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc';
+
+    $(function getPopularFromApi() {
+        $.getJSON(API_POPULAR_URL, { api_key: STORE.api_key }, (res) => {
+            console.log('popular:', res.results);
+            res.results.forEach(item =>
+                $('#popular').append(`<img class="popular_movies" src="https://image.tmdb.org/t/p/w500${item.poster_path}"></img>`));
+        })
+    })
 
     function getDataFromApi(searchTerm, callback) {
         const query = {
@@ -33,6 +41,20 @@ $(document).ready(function () {
             displayFeedbackMessage(message);
         });
     }
+
+    $('.js-search-form').submit(event => {
+        event.preventDefault();
+        const queryTarget = $(event.currentTarget).find('.js-query');
+        const query = queryTarget.val();
+        STORE.searchTerm = query;
+        queryTarget.val();
+        STORE.page = 1;
+        getDataFromApi(query, displaySearchResult);
+        $('#popular').addClass('hidden');
+        $('.js-movie-result-page').removeAttr('hidden');
+        $('.previous_page').prop('disabled', true);
+        $('.next_page').prop('disabled', false);
+    });
 
     function displayFeedbackMessage(message) {
         $('#feedback').html(message)
@@ -69,6 +91,7 @@ $(document).ready(function () {
     }
 
 
+
     $(function displayMovieDetails() {
         $('.js-movie-result-page').on('click', '.js-movie-poster', event => {
             $(event.target).parent().addClass('card_hover');
@@ -76,35 +99,18 @@ $(document).ready(function () {
             window.scrollTo(0, 0);
 
         })
-        $('.overlay').on('click', event => {
+        $('.overlay, .close').on('click', event => {
             $('.card_hover').removeClass('card_hover');
             $('.overlay').hide();
         })
-        $('close').on('click', event => {
-            $('.card_hover').removeClass('card_hover');
-            $('.overlay').hide();
+        $('#popular').on('click', '.popular_movies', event => {
+            // $(event.target).parent().addClass('card_hover');
+            // $('.overlay').show();
+            // window.scrollTo(0, 0);
         })
     })
 
-    $.getJSON(API_CURRENT_URL, { api_key: STORE.api_key }, (res) => {
-        console.log('current:', res.results);
-        $('#current').append(`<img class="current_movies" src="https://image.tmdb.org/t/p/w500${res.results[0].poster_path}"></img>`)
-        console.log('popluar id:', res.results[0].id)
-    })
 
-    $('.js-search-form').submit(event => {
-        event.preventDefault();
-        const queryTarget = $(event.currentTarget).find('.js-query');
-        const query = queryTarget.val();
-        STORE.searchTerm = query;
-        queryTarget.val();
-        STORE.page = 1;
-        getDataFromApi(query, displaySearchResult);
-        $('#current').addClass('hidden');
-        $('.js-movie-result-page').removeAttr('hidden');
-        $('.previous_page').prop('disabled', true);
-        $('.next_page').prop('disabled', false);
-    });
 
     $('.js-query').keyup(event => {
         if (event.target.value.length > 0) {

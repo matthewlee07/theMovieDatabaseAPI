@@ -10,15 +10,14 @@
 }
 
 .logo{
-    margin: 24px;
-    padding: 12px;
-    width: 50%;
-    height: 50%;
+    margin: 12px;
+    width: 300px;
+    height: 150px;
 }
 
-.current_movies{
-    border: 2px solid pink;
-    display: block
+.popular_movies{
+    display: inline-block;
+    margin: 12px;
 }
 
 .result_page{
@@ -82,7 +81,6 @@ a{
     display:none;
     position: fixed;
     z-index:20;
-    /* padding-top: 10px; */
     top:0;
     left:0;
     width: 100%;
@@ -104,7 +102,6 @@ a{
 }
 
 .search_result{
-    border: 2px solid blue;
     height: 550px;
     width: 300px;
     margin:12px;
@@ -128,3 +125,11 @@ a{
 /* disable scrolling on movie details */
 /* need to increase width of movie details responively */
 /* Prev/Next button same size */
+
+@media only screen and (min-width : 768px) {
+    .logo{
+        margin: 12px;
+        width: 600px;
+        height: 300px;
+    }
+}
