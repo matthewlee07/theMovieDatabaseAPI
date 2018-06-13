@@ -13,15 +13,10 @@ $(document).ready(function () {
 
     $(function getPopularFromApi() {
         $.getJSON(API_POPULAR_URL, { api_key: STORE.api_key }, (res) => {
-            console.log('popular:', res.results);
             res.results.forEach(item =>
-                $('#popular').append(`<img class="popular_movies movie_poster" src="https://image.tmdb.org/t/p/w500${item.poster_path}"></img>`));
+                $('#popular').append(`<img class="popular_movies" src="https://image.tmdb.org/t/p/w500${item.poster_path}"></img>`));
         })
     })
-
-    $(document).on('click', '.popular_movies', (event) => {
-        console.log('popular movies');
-    });
 
     function getDataFromApi(searchTerm, callback) {
         const query = {
@@ -81,16 +76,18 @@ $(document).ready(function () {
     function renderSearchResult(item) {
         if (item.poster_path !== null) {
             return `
-                <li id=${item.id} class='search_result'>
-                    <h3><strong>${item.title}</strong></h3>
-                    <img class='js-movie-poster movie_poster' src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt=${item.title}/>
-                    <div class="movie_details">
-                        <p><strong class="font">Average Rating</strong>: ${item.vote_average}</p>
-                        <p><strong class="font">Release Date</strong>: ${item.release_date}</p>
-                        <p><strong class="font">Overview:</strong> ${item.overview}</p>
-                        <button class="close">Close window</button>
-                    </div>
-                </li>
+
+                    <li id=${item.id} class='search_result'>
+                        <h3><strong>${item.title}</strong></h3>
+                        <img class='js-movie-poster movie_poster' src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt=${item.title}/>
+                        <div class="movie_details">
+                            <p><strong class="font">Average Rating</strong>: ${item.vote_average}</p>
+                            <p><strong class="font">Release Date</strong>: ${item.release_date}</p>
+                            <p><strong class="font">Overview:</strong> ${item.overview}</p>
+                            <button class="close">Close window</button>
+                        </div>
+                    </li>
+
             `;
         }
     }
@@ -117,8 +114,6 @@ $(document).ready(function () {
             // window.scrollTo(0, 0);
         })
     })
-
-
 
     $('.js-query').keyup(event => {
         if (event.target.value.length > 0) {
@@ -155,5 +150,4 @@ $(document).ready(function () {
             $('.next_page').prop('disabled', true);
         }
     })
-
 })
