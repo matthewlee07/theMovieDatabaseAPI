@@ -3,10 +3,12 @@
     background-color: #eeeeee;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
+    font-size: 16px;
 }
 
 .font{
     font-family: 'Merriweather', serif;
+    font-size: 16px;
 }
 
 .logo{
@@ -111,6 +113,7 @@ a{
     width: 100%;
     height: 100%;
     max-width: 300px;
+    background-size: cover;
 }
 
 .card_hover .movie_details{

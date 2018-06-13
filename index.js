@@ -84,22 +84,26 @@ $(document).ready(function () {
                         <p><strong class="font">Average Rating</strong>: ${item.vote_average}</p>
                         <p><strong class="font">Release Date</strong>: ${item.release_date}</p>
                         <p><strong class="font">Overview:</strong> ${item.overview}</p>
+                        <button class="close">Close window</button>
                     </div>
                 </li>
             `;
         }
     }
 
-
-
     $(function displayMovieDetails() {
         $('.js-movie-result-page').on('click', '.js-movie-poster', event => {
             $(event.target).parent().addClass('card_hover');
             $('.overlay').show();
             window.scrollTo(0, 0);
-
         })
-        $('.overlay, .close').on('click', event => {
+        $('.js-movie-result-page').on('click', '.close', () => {
+            console.log('close')
+            $('.card_hover').removeClass('card_hover');
+            $('.overlay').hide();
+        });
+
+        $('.overlay').on('click', event => {
             $('.card_hover').removeClass('card_hover');
             $('.overlay').hide();
         })
