@@ -116,6 +116,10 @@ a{
     background-size: cover;
 }
 
+.movie_poster:hover{
+    filter: brightness(150%)
+}
+
 .card_hover .movie_details{
     display: block;
 }

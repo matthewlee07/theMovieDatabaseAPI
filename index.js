@@ -15,9 +15,13 @@ $(document).ready(function () {
         $.getJSON(API_POPULAR_URL, { api_key: STORE.api_key }, (res) => {
             console.log('popular:', res.results);
             res.results.forEach(item =>
-                $('#popular').append(`<img class="popular_movies" src="https://image.tmdb.org/t/p/w500${item.poster_path}"></img>`));
+                $('#popular').append(`<img class="popular_movies movie_poster" src="https://image.tmdb.org/t/p/w500${item.poster_path}"></img>`));
         })
     })
+
+    $(document).on('click', '.popular_movies', (event) => {
+        console.log('popular movies');
+    });
 
     function getDataFromApi(searchTerm, callback) {
         const query = {
