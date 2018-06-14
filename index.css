@@ -3,7 +3,7 @@
     background-color: #eeeeee;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
-    font-size: 16px;
+    font-size: 24px;
 }
 
 .font{
@@ -17,13 +17,25 @@
     height: 150px;
 }
 
+#popular_movies_section{
+    margin-top: 70px;
+}
+
 .popular_movies{
     display: inline-block;
     margin: 12px;
 }
 
+#search_form_section{
+    margin-top:70px;
+}
+
 .result_page{
     margin-top: 25px;
+}
+
+.TMDb{
+    color: rgb(1,210,119);
 }
 
 .TMDb_SVG{
