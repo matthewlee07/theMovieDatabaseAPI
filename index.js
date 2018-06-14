@@ -81,9 +81,9 @@ $(document).ready(function () {
                         <h3><strong>${item.title}</strong></h3>
                         <img class='js-movie-poster movie_poster' src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt=${item.title}/>
                         <div class="movie_details">
-                            <p><strong class="font">Average Rating</strong>: ${item.vote_average}</p>
-                            <p><strong class="font">Release Date</strong>: ${item.release_date}</p>
-                            <p><strong class="font">Overview:</strong> ${item.overview}</p>
+                            <p><strong class="font">Average Rating:</strong> ${item.vote_average}</p>
+                            <p><strong class="font">Release Date:</strong> </br>${item.release_date}</p>
+                            <p><strong class="font">Overview:</strong> </br>${item.overview}</p>
                             <button class="close">Close window</button>
                         </div>
                     </li>

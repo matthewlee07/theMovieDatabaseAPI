@@ -3,12 +3,16 @@
     background-color: #eeeeee;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
-    font-size: 24px;
+    font-size: 16px;
 }
 
 .font{
     font-family: 'Merriweather', serif;
     font-size: 16px;
+}
+
+.large{
+    font-size: 24px;
 }
 
 .logo{
@@ -136,8 +140,13 @@ a{
 }
 
 .movie_details{
+    border: 2px solid red;
     display: none;
-    padding:5% 25%;
+    padding:5%;
+}
+
+.movie_details>p{
+    line-height: 30px;
 }
 
 /* disable scrolling on movie details */
