@@ -78,13 +78,15 @@ $(document).ready(function () {
             return `
 
                     <li id=${item.id} class='search_result'>
-                        <h3><strong>${item.title}</strong></h3>
-                        <img class='js-movie-poster movie_poster' src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt=${item.title}/>
-                        <div class="movie_details">
-                            <p><strong class="font">Average Rating:</strong> ${item.vote_average}</p>
-                            <p><strong class="font">Release Date:</strong> </br>${item.release_date}</p>
-                            <p><strong class="font">Overview:</strong> </br>${item.overview}</p>
-                            <button class="close">Close window</button>
+                        <div class="clicked_poster">
+                            <h3>${item.title}</h3>
+                            <img class='js-movie-poster movie_poster' src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt=${item.title}/>
+                            <div class="movie_details">
+                                <p><strong class="font">Average Rating:</strong> ${item.vote_average}</p>
+                                <p><strong class="font">Release Date:</strong> </br>${item.release_date}</p>
+                                <p><strong class="font">Overview:</strong> </br>${item.overview}</p>
+                                <button class="close">Close window</button>
+                            </div>
                         </div>
                     </li>
 
@@ -104,15 +106,15 @@ $(document).ready(function () {
             $('.js-overlay').hide();
         });
 
-        $('.js-overlay').on('click', event => {
+        $('.js-overlay').on('click', () => {
             $('.card_hover').removeClass('card_hover');
             $('.js-overlay').hide();
         })
-        $('#popular').on('click', '.popular_movies', event => {
-            // $(event.target).parent().addClass('card_hover');
-            // $('.overlay').show();
-            // window.scrollTo(0, 0);
-        })
+        // $('#popular').on('click', '.popular_movies', event => {
+        //     $(event.target).parent().addClass('card_hover');
+        //     $('.overlay').show();
+        //     window.scrollTo(0, 0);
+        // })
     })
 
     $('.js-query').keyup(event => {

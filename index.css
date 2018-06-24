@@ -8,7 +8,6 @@
 
 .font {
     font-family: 'Merriweather', serif;
-    font-size: 16px;
 }
 
 .large, #search_button{
@@ -27,6 +26,8 @@
 
 .popular_movies {
     display: inline-block;
+    height: 550px;
+    width: 300px;
     margin: 12px;
 }
 
@@ -95,8 +96,12 @@ a {
     text-decoration: none;
 }
 
+.clicked_poster {
+    height: 550px;
+    width: 300px;
+}
+
 .overlay {
-    border:2px solid red;
     display:none;
     position: fixed;
     z-index:20;
