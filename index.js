@@ -95,18 +95,18 @@ $(document).ready(function () {
     $(function displayMovieDetails() {
         $('.js-movie-result-page').on('click', '.js-movie-poster', event => {
             $(event.target).parent().addClass('card_hover');
-            $('.overlay').show();
+            $('.js-overlay').show();
             window.scrollTo(0, 0);
         })
         $('.js-movie-result-page').on('click', '.close', () => {
             console.log('close')
             $('.card_hover').removeClass('card_hover');
-            $('.overlay').hide();
+            $('.js-overlay').hide();
         });
 
-        $('.overlay').on('click', event => {
+        $('.js-overlay').on('click', event => {
             $('.card_hover').removeClass('card_hover');
-            $('.overlay').hide();
+            $('.js-overlay').hide();
         })
         $('#popular').on('click', '.popular_movies', event => {
             // $(event.target).parent().addClass('card_hover');
